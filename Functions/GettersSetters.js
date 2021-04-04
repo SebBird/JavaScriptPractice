@@ -16,3 +16,30 @@ const person = {
 person.fullName = "Nathan Atherton";
 
 console.log(person);
+
+//ALTERNATIVE
+
+function Circle(radius) {
+  this.radius = radius;
+
+  let defaultLocation = { x: 0, y: 0 };
+
+  this.draw = function () {
+    console.log("draw");
+  };
+
+  Object.defineProperty(this, "defaultLocation", {
+    get: function () {
+      return defaultLocation;
+    },
+    set: function (value) {
+      if (!value.x || !value.y) throw new Error("Invalid location");
+
+      defaultLocation = value;
+    },
+  });
+}
+
+const circle = new Circle(1);
+
+circle.defaultLocation = { x: 2, y: 5 };

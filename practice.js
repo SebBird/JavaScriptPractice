@@ -1,30 +1,7 @@
-const _items = new WeakMap();
+let one = 1;
+let two = 2;
+let three = 3;
 
-class Stack {
-  constructor() {
-    _items.set(this, []);
-  }
+let numArray = [one, two, three];
 
-  push(obj) {
-    _items.get(this).push(obj);
-  }
-  pop() {
-    const items = _items.get(this);
-
-    if (items.length === 0) throw new Error("Stack is empty");
-
-    return items.pop();
-  }
-  peek() {
-    const items = _items.get(this);
-    if (items.length === 0) throw new Error("Stack is empty");
-
-    return [items.length - 1];
-  }
-
-  get count() {
-    return _items.get(this).length;
-  }
-}
-
-const stack = new Stack();
+console.log(numArray);
